@@ -19,7 +19,7 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
       <ol>
         <?php
         while( $row = mysqli_fetch_assoc($result) ) {
-          echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a><li>'."\n";
+          echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a><li>'."\n";
         }
         ?>
       </ol>
@@ -30,15 +30,18 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
       <a href="http://localhost/write.php">쓰기</a>
     </div>
     <article>
-      <?php
-      if(empty($_GET['id']) === false) {
-        $sql = 'SELECT * FROM topic WHERE id='.$_GET['id'];
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
-        echo strip_tags($row['description'], '<a><h1><h2><h3><h4><ul><ol><li>');
-      }
-      ?>
+      <form action="process.php" method="post">
+        <p>
+          제목 : <input type="text" name="title">
+        </p>
+        <p>
+          작성자 : <input type="text" name="author">
+        </p>
+        <p>
+          본문 : <textarea name="description"></textarea>
+        </p>
+        <input type="submit" name="name">
+      </form>
     </article>
   </body>
 </html>
