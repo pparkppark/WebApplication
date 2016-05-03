@@ -1,35 +1,18 @@
-body.black{
-  background: black;
-  color: white;
-}
-
-body.white{
+body.white {
   background: white;
   color: black;
 }
 
-header {
-  border-bottom: 1px solid gray;
-  padding:20px;
+body.black {
+  background: black;
+  color: white;
+
 }
-nav {
-  border-right: 1px solid gray;
-  width: 200px;
-  height: 600px;
-  float: left;
+
+.container {
+  padding-top: 20px;
 }
-nav ol {
-  list-style: none;
-  padding: 0px;
-}
-article {
-  float: left;
-  padding: 20px;
-  width: 500px;
-}
-h2 {
-  font-size: 50px;
-}
+
 #control {
-  float right;
+  margin-bottom: 40px;
 }
